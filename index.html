@@ -1,0 +1,131 @@
+<html>
+    <head>
+       <title>BSK Reports</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>	
+    <script type="text/javascript">
+	  function validatePass() {
+	  document.getElementById("errormsg").innerHTML="";
+	  
+	  if (document.getElementById("uname").value == "") {
+	  document.getElementById("errormsg").innerHTML = "<p style='color:red; text-align:center;'>Please Enter Username</p>";	  
+	  document.getElementById("uname").focus();
+	  return false;
+	  }
+	  if (document.getElementById("pass").value == "") {	  
+	  document.getElementById("errormsg").innerHTML = "<p style='color:red; text-align:center;'>Please Enter Password</p>";
+	  document.getElementById("pass").focus();
+	  return false;
+	  }	  
+	  if (document.getElementById("uname").value !="admin" && document.getElementById("pass").value !="admin") {	  
+	  document.getElementById("errormsg").innerHTML = "<p style='color:red; text-align:center;'>Username or Password is not match</p>";
+	  return false;
+	  }
+	  else
+	  {
+	  window.location="report_display_vg.html";
+	  return true;
+	  }
+	  }
+    </script>
+	<style type="text/css">
+	body
+	{
+		background:#fff;
+		color:#000;
+		paddin:0;
+		margin:0;
+		margin:0 auto;
+	}
+	#title
+	{
+		height:2.5em;
+		width:100%;
+		background:#424242;
+		color:#fff;
+		font-size:1.4em;		
+			
+	}
+	#title_image
+	{
+		float:left;
+		vertical-align: middle;
+	}
+	#title_text
+	{
+		float:left;
+		padding-left:0.4em;
+		padding-top:0.5em;
+		vertical-align:middle;
+	}
+	.txt
+	{
+		width:98%;
+		margin-left:1%;
+		margin-right:1%;
+		height:auto;
+		font-size:12pt;
+		color:#000;
+		padding-top:0.5em;
+		padding-bottom:0.5em;
+		border:none;
+		border:0px;
+		border-bottom:1px  solid #efefef;
+	}
+	.txt:focus
+	{
+		outline:none;
+		border-bottom:1px  solid #0099cc;
+	}
+	.button
+	{
+		float:left;
+		width:auto;
+		font-size:12pt;
+		background:#0263ad;
+		padding:0.8em 0.8em;
+		border:0;
+		color:#fff;
+		margin-right:1em;
+	}
+	ul
+	{
+		list-style-type:none;
+		margin-left:-30px;		
+	}
+	li
+	{
+		padding:0.5em 0;
+	}
+	#container
+	{
+		width:98%;
+		height:auto;
+		margin:0 auto;
+		margin-left:1%;
+		margin-right:1%;
+		margin-top:1em;
+		margin-bottom:1em;
+		/*background:red;*/
+	}
+	</style>
+    </head>
+    <body>
+	<div id="title">
+		<img src="ic_launcher-48.png" alt="" id="title_image"/> <span id="title_text">BSK Reports</span>
+	</div>
+    <div id="result"></div>
+		<div id="container">
+			<form name="contact" id="contact" method="post">
+			<center><img src="logo.png" alt="" style="text-align:center;"/></center>
+			<ul>
+			<li>Username</li>
+			<li><input type="text" name="uname" id="uname" class="txt" autocomplete="off"/></li>
+			<li>Password</li>
+			<li><input type="password" name="pass" id="pass" class="txt" autocomplete="off"/></li>
+			<li><input type="button" value="Login" name="submit" id="submit" class="button" onclick = "validatePass()"/><input type="button" value="Clear" name="clear" id="clear" class="button"/></li>
+			</ul>
+			<span id="errormsg"></span>
+			</form>
+		</div>
+    </body>
+</html>
